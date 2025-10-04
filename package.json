@@ -1,0 +1,26 @@
+{
+	"name": "cloudflex-landing",
+	"version": "1.0.0",
+	"description": "**CloudFlex Landing** is a clean and modern landing page designed to showcase the features of the _cloud-focused service_ **CloudFlex**.",
+	"main": "index.js",
+	"scripts": {
+		"sass": "sass ./styles/main.scss dist/main.css --source-map --watch",
+		"sass:min": "sass ./styles/main.scss dist/main.min.css --style=compressed",
+		"clean": "rimraf dist",
+		"build": "npm run clean && npm run sass:min"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/sabyrzhanik/cloudflex-landing.git"
+	},
+	"author": "",
+	"license": "ISC",
+	"bugs": {
+		"url": "https://github.com/sabyrzhanik/cloudflex-landing/issues"
+	},
+	"homepage": "https://github.com/sabyrzhanik/cloudflex-landing#readme",
+	"devDependencies": {
+		"rimraf": "^6.0.1",
+		"sass": "^1.93.2"
+	}
+}

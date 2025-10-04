@@ -1,12 +1,7 @@
-# VS Code settings
 .vscode/
-
-# WebStorm / JetBrains IDEs
 .idea/
 *.iml
-
-# macOS system files
 .DS_Store
-
-# Windows system files
 Thumbs.db
+node_modules/
+dist/

@@ -1,6 +1,20 @@
-/**
-  Нормализация блочной модели
- */
+// Переменные
+$paragraph-margin-bottom: 24px;
+$cursor-pointer: pointer;
+$font-inherit: inherit;
+$scroll-behavior-smooth: smooth;
+
+// Миксин для общего стиля ссылок
+@mixin link-styles {
+	display: inline-flex;
+}
+
+// Миксин для стилей для svg-элементов
+@mixin svg-fill-stroke {
+	transition-property: fill, stroke;
+}
+
+// Нормализация
 *,
 ::before,
 ::after {
@@ -59,17 +73,12 @@ body,
   чтобы избежать взаимодействие с более сложным селектором
  */
 p {
-	--paragraphMarginBottom: 24px;
-
 	margin-block: 0;
-}
+	--paragraphMarginBottom: $paragraph-margin-bottom;
 
-/**
-  Внешний отступ вниз для параграфа без атрибута class,
-  который расположен не последним среди своих соседних элементов
- */
-p:where(:not([class]):not(:last-child)) {
-	margin-bottom: var(--paragraphMarginBottom);
+	&:where(:not([class]):not(:last-child)) {
+		margin-bottom: var(--paragraphMarginBottom);
+	}
 }
 
 /**
@@ -89,7 +98,7 @@ input,
 textarea,
 select,
 button {
-	font: inherit;
+	font: $font-inherit;
 }
 
 html {
@@ -106,7 +115,7 @@ html {
 	/**
     Плавный скролл
    */
-	scroll-behavior: smooth;
+	scroll-behavior: $scroll-behavior-smooth;
 }
 
 body {
@@ -125,7 +134,7 @@ body {
   Нормализация высоты элемента ссылки при его инспектировании в DevTools
  */
 a:where([class]) {
-	display: inline-flex;
+	@include link-styles;
 }
 
 /**
@@ -133,7 +142,7 @@ a:where([class]) {
  */
 button,
 label {
-	cursor: pointer;
+	cursor: $cursor-pointer;
 }
 
 /**
@@ -148,16 +157,15 @@ button {
   (за исключением тех, у которых уже указан
   атрибут fill со значением 'none' или начинается с 'url')
  */
-:where([fill]:not([fill="none"], [fill^="url"])) {
+:where([fill]:not([fill='none'], [fill^='url'])) {
 	fill: currentColor;
 }
 
 /**
   Приводим к единому цвету svg-элементы
-  (за исключением тех, у которых уже указан
-  атрибут stroke со значением 'none')
+  (за исключением тех, у которых уже указан атрибут stroke со значением 'none')
  */
-:where([stroke]:not([stroke="none"], [stroke^="url"])) {
+:where([stroke]:not([stroke='none'], [stroke^='url'])) {
 	stroke: currentColor;
 }
 
@@ -165,7 +173,7 @@ button {
   Чиним баг задержки смены цвета при взаимодействии с svg-элементами
  */
 svg * {
-	transition-property: fill, stroke;
+	@include svg-fill-stroke;
 }
 
 /**
