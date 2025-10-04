@@ -1,0 +1,14 @@
+@import "./base/normalize.css";
+@import "./base/fonts.css";
+@import "./base/variables.css";
+@import "./base/globals.css";
+@import "./base/utils.css";
+
+@import "./components/burger-menu.css";
+
+@import "./layout/header.css";
+@import "./layout/home.css";
+@import "./layout/about.css";
+@import "./layout/history.css";
+@import "./layout/portfolio.css";
+@import "./layout/contacts.css";

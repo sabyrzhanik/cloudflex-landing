@@ -1,0 +1,16 @@
+:root {
+	--color-light: #fff;
+	--color-dark: #292929;
+	--color-dark-alt: #424242;
+	--color-accent: #01996d;
+	--color-accent-alt: #245852;
+
+	--font-family: "Lato", sans-serif;
+
+	--container-width: 1400px;
+	--container-padding-x: 15px;
+
+	--transition-duration: 0.2s;
+
+	/* Media Queries: 992px, 768px, 576px */
+}

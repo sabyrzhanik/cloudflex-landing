@@ -1,0 +1,48 @@
+body {
+	font-family: var(--font-family);
+	font-weight: 400;
+	font-size: 20px;
+	line-height: 1.5;
+	color: var(--color-dark);
+	background-color: var(--color-light);
+}
+
+svg *[fill] {
+	fill: currentColor;
+}
+svg *[stroke] {
+	stroke: currentColor;
+}
+
+a,
+button,
+input,
+textarea,
+svg * {
+	transition-duration: var(--transition-duration);
+}
+
+svg * {
+	transition-property: fill, stroke;
+}
+
+a {
+	color: var(--color-dark);
+	text-decoration: none;
+}
+
+a:hover {
+	color: var(--color-accent);
+}
+
+@media (max-width: 768px) {
+	body {
+		font-size: 16px;
+	}
+}
+
+@media (max-width: 576px) {
+	body {
+		font-size: 14px;
+	}
+}
